@@ -1,4 +1,4 @@
-# Trabajo Práctico 1 - Programación Orientada a Objetos en Java
+<img width="1652" height="670" alt="image" src="https://github.com/user-attachments/assets/6cd8dd8d-aa1d-49c8-aeb7-d8d806dedf7e" /><img width="1652" height="670" alt="image" src="https://github.com/user-attachments/assets/7bd9b8ee-b9e3-49c4-ac59-5573954dfaa5" /># PP_TP1_53522 — Sistema de Gestión de Eventos Universitarios
 
 **Universidad:** Universidad Tecnológica Nacional - Facultad Regional Mendoza (UTN FRM)
 **Materia:** Paradigmas de Programación
@@ -27,3 +27,4 @@ El repositorio cuenta con todos los artefactos solicitados en las pautas de entr
 
 ## Ejecución
 Para ejecutar el proyecto, compilar e iniciar desde la clase `App.java`, la cual contiene el método `main` con los casos de prueba de estudiantes, eventos y actividades instanciados.
+<img width="1652" height="670" alt="image" src="https://github.com/user-attachments/assets/f5fe2076-0db9-4f16-ba70-2b8faa1e927a" />
