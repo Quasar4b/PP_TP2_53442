@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>App.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+App.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">List</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">App </span><span class="s2">{</span>
+    <span class="s0">public void </span><span class="s1">crearEventos</span><span class="s2">() {</span>
+        <span class="s1">Estudiante estudiante1</span><span class="s2">= </span><span class="s0">new </span><span class="s1">Estudiante</span><span class="s2">(</span>
+                <span class="s3">&quot;53442&quot;</span><span class="s2">,</span>
+                <span class="s3">&quot;Juan Francisco Olivieri&quot;</span><span class="s2">);</span>
+        <span class="s1">Estudiante estudiante2</span><span class="s2">= </span><span class="s0">new </span><span class="s1">Estudiante</span><span class="s2">(</span>
+                <span class="s3">&quot;53522&quot;</span><span class="s2">,</span>
+                <span class="s3">&quot;Valentina Antonella Toledo&quot;</span><span class="s2">);</span>
+        <span class="s1">EventoUniversitario evento1 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">EventoUniversitario</span><span class="s2">(</span>
+                <span class="s3">&quot;E001&quot;</span><span class="s2">,</span>
+                <span class="s3">&quot;Charla de Programación&quot;</span><span class="s2">,</span>
+                <span class="s4">5000</span><span class="s2">,</span>
+                <span class="s0">false</span><span class="s2">);</span>
+        <span class="s1">EventoUniversitario evento2 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">EventoUniversitario</span><span class="s2">(</span>
+                <span class="s3">&quot;E002&quot;</span><span class="s2">,</span>
+                <span class="s3">&quot;Taller de Java&quot;</span><span class="s2">,</span>
+                <span class="s4">10000</span><span class="s2">,</span>
+                <span class="s0">false</span><span class="s2">);</span>
+
+        <span class="s1">EventoUniversitario copiaEvento1 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">EventoUniversitario</span><span class="s2">(</span><span class="s1">evento1</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;--------EVENTO ORIGINAL--------&quot;</span><span class="s2">);</span>
+        <span class="s1">evento1</span><span class="s2">.</span><span class="s1">mostrarDatos</span><span class="s2">();</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;-----------------------------&quot;</span><span class="s2">);</span>
+        <span class="s1">evento2</span><span class="s2">.</span><span class="s1">mostrarDatos</span><span class="s2">();</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;--------COPIA DEL EVENTO--------&quot;</span><span class="s2">);</span>
+        <span class="s1">copiaEvento1</span><span class="s2">.</span><span class="s1">mostrarDatos</span><span class="s2">();</span>
+    <span class="s2">}</span>
+    <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">Estudiante</span><span class="s2">&gt; </span><span class="s1">estudiantes </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+    <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">EventoUniversitario</span><span class="s2">&gt; </span><span class="s1">eventos </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

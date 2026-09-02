@@ -1,0 +1,105 @@
+<html>
+<head>
+<title>EventoUniversitario.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+EventoUniversitario.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">jdk</span><span class="s2">.</span><span class="s1">jfr</span><span class="s2">.</span><span class="s1">Event</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">List</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">EventoUniversitario </span><span class="s2">{</span>
+    <span class="s0">private final </span><span class="s1">String id</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">String titulo</span><span class="s2">;</span>
+    <span class="s0">private double </span><span class="s1">costoBase</span><span class="s2">;</span>
+    <span class="s0">private boolean </span><span class="s1">gratuito</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">Sala sala</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">Actividad</span><span class="s2">&gt; </span><span class="s1">actividades</span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+    <span class="s0">private static int </span><span class="s1">cantidadEventos</span><span class="s2">;</span>
+    <span class="s0">static</span><span class="s2">{</span>
+        <span class="s1">cantidadEventos</span><span class="s2">=</span><span class="s3">0</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public </span><span class="s1">EventoUniversitario</span><span class="s2">(</span><span class="s1">String id</span><span class="s2">, </span><span class="s1">String titulo</span><span class="s2">, </span><span class="s0">double </span><span class="s1">costoBase</span><span class="s2">, </span><span class="s0">boolean </span><span class="s1">gratuito</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">id </span><span class="s2">= </span><span class="s1">id</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">titulo </span><span class="s2">= </span><span class="s1">titulo</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">costoBase </span><span class="s2">= </span><span class="s1">costoBase</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">gratuito </span><span class="s2">= </span><span class="s1">gratuito</span><span class="s2">;</span>
+        <span class="s1">cantidadEventos</span><span class="s2">++;</span>
+    <span class="s2">}</span>
+    <span class="s0">public </span><span class="s1">EventoUniversitario</span><span class="s2">(</span><span class="s1">EventoUniversitario otro</span><span class="s2">){</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">id </span><span class="s2">= </span><span class="s1">otro</span><span class="s2">.</span><span class="s1">id </span><span class="s2">+  </span><span class="s4">&quot;-COPIA&quot;</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">titulo </span><span class="s2">= </span><span class="s1">otro</span><span class="s2">.</span><span class="s1">titulo</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">costoBase </span><span class="s2">= </span><span class="s1">otro</span><span class="s2">.</span><span class="s1">costoBase</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">gratuito </span><span class="s2">= </span><span class="s1">otro</span><span class="s2">.</span><span class="s1">gratuito</span><span class="s2">;</span>
+        <span class="s1">cantidadEventos</span><span class="s2">++;</span>
+    <span class="s2">}</span>
+    <span class="s0">public void </span><span class="s1">mostrarDatos</span><span class="s2">(){</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;ID: &quot; </span><span class="s2">+ </span><span class="s1">id</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Titulo: &quot; </span><span class="s2">+ </span><span class="s1">titulo</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Costo Base: &quot; </span><span class="s2">+ </span><span class="s1">costoBase</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Gratuito: &quot; </span><span class="s2">+ </span><span class="s1">gratuito</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Cantidad de Eventos: &quot; </span><span class="s2">+ </span><span class="s1">EventoUniversitario</span><span class="s2">.</span><span class="s1">cantidadEventos</span><span class="s2">);</span>
+    <span class="s2">}</span>
+    <span class="s0">public void </span><span class="s1">asignarSala</span><span class="s2">(</span><span class="s1">Sala sala</span><span class="s2">){</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">sala </span><span class="s2">= </span><span class="s1">sala</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public void </span><span class="s1">crearActividad</span><span class="s2">(</span><span class="s0">int </span><span class="s1">id</span><span class="s2">, </span><span class="s1">String titulo</span><span class="s2">, </span><span class="s0">int </span><span class="s1">cupo</span><span class="s2">){</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">actividades </span><span class="s2">= </span><span class="s1">actividades</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String getId</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">id</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String getTitulo</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">titulo</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setTitulo</span><span class="s2">(</span><span class="s1">String titulo</span><span class="s2">) {</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">titulo </span><span class="s2">== </span><span class="s0">null </span><span class="s2">|| </span><span class="s1">titulo</span><span class="s2">.</span><span class="s1">isBlank</span><span class="s2">()) {</span>
+            <span class="s0">return</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">titulo </span><span class="s2">= </span><span class="s1">titulo</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public double </span><span class="s1">getCostoBase</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">costoBase</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setCostoBase</span><span class="s2">(</span><span class="s0">double </span><span class="s1">costoBase</span><span class="s2">) {</span>
+        <span class="s0">if</span><span class="s2">(</span><span class="s1">gratuito </span><span class="s2">|| </span><span class="s1">costoBase </span><span class="s2">&lt; </span><span class="s3">0</span><span class="s2">)</span>
+            <span class="s0">return</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">costoBase </span><span class="s2">= </span><span class="s1">costoBase</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public boolean </span><span class="s1">isGratuito</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">gratuito</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setGratuito</span><span class="s2">(</span><span class="s0">boolean </span><span class="s1">gratuito</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">gratuito </span><span class="s2">= </span><span class="s1">gratuito</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static int </span><span class="s1">getCantidadEventos</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">cantidadEventos</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static void </span><span class="s1">setCantidadEventos</span><span class="s2">(</span><span class="s0">int </span><span class="s1">cantidadEventos</span><span class="s2">) {</span>
+        <span class="s1">EventoUniversitario</span><span class="s2">.</span><span class="s1">cantidadEventos </span><span class="s2">= </span><span class="s1">cantidadEventos</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
