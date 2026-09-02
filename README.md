@@ -1,30 +1,41 @@
-<img width="1652" height="670" alt="image" src="https://github.com/user-attachments/assets/6cd8dd8d-aa1d-49c8-aeb7-d8d806dedf7e" /><img width="1652" height="670" alt="image" src="https://github.com/user-attachments/assets/7bd9b8ee-b9e3-49c4-ac59-5573954dfaa5" /># PP_TP1_53522 — Sistema de Gestión de Eventos Universitarios
+# PP_TP1_53442 — Sistema de Gestión de Eventos Universitarios
 
-**Universidad:** Universidad Tecnológica Nacional - Facultad Regional Mendoza (UTN FRM)
-**Materia:** Paradigmas de Programación
-**Alumno:** Juan Francisco Olivieri 
-**Legajo:** 53442
+## Descripción del proyecto
+Aplicación en Java que modela un sistema de gestión de eventos universitarios, sus actividades, estudiantes e inscripciones. El proyecto fue incorporando progresivamente relaciones de composición, agregación, herencia y polimorfismo.
 
-## Descripción del Proyecto
-Este proyecto implementa un sistema básico para la administración de eventos universitarios mediante Programación Orientada a Objetos en Java. El modelo permite crear eventos, asignarles salas físicas, gestionar distintas actividades (charlas y talleres) e inscribir estudiantes en dichas actividades.
+## Estructura de clases
+* **EventoUniversitario:** representa un evento universitario. Se compone de una o más actividades (composición: las actividades no existen sin el evento) y tiene asociada una sala (agregación: la sala existe independientemente del evento).
+* **Actividad (clase abstracta):** clase base de toda actividad. Define atributos y comportamiento común (id, título, cupo máximo, lista de inscripciones, método `inscribir()`, `mostrarInscripciones()`). El método `mostrarIdentificaciones()` es final (no puede redefinirse en las subclases). Los métodos `calcularCostoMateriales()` y `getTipo()` son abstractos: cada subclase concreta decide cómo implementarlos.
+* **Charla (subclase de Actividad):** actividad sin costo de materiales. Tiene un atributo propio `disertante`.
+* **Taller (subclase de Actividad):** actividad con costo de materiales según si requiere notebook o no. Tiene un atributo propio `requiereNotebook`.
+* **Estudiante:** representa a un estudiante que puede inscribirse en actividades.
+* **Inscripcion:** asocia un estudiante con una actividad, registrando fecha y estado de la inscripción.
+* **Sala:** representa el espacio físico asignado a un evento.
 
-## Conceptos Aplicados
-El código fue desarrollado aplicando los fundamentos de la POO, incluyendo:
-* **Encapsulamiento:** Uso adecuado de modificadores de acceso (`private`, `public`, `protected`) y constantes (`final`).
-* **Relaciones entre Clases:**
-  * *Agregación:* Relación entre `EventoUniversitario` y `Sala` (la sala existe independientemente del evento).
-  * *Composición:* Relación entre `EventoUniversitario` y `Actividad` (el evento se compone de actividades, contenidas en una lista).
-  * *Asociación:* Relación de los estudiantes con las actividades a través de la clase intermedia `Inscripcion`.
-* **Herencia:** La clase abstracta `Actividad` funciona como superclase para los tipos específicos `Charla` y `Taller`.
-* **Polimorfismo:** Implementado en el cálculo de costos y la visualización de datos, permitiendo tratar distintas actividades de forma unificada en las colecciones del evento.
+## Polimorfismo
+El método `mostrarIdentificaciones()`, definido una única vez en `Actividad` (y marcado como `final`), utiliza internamente el método abstracto `getTipo()`. Al recorrer una lista `List<Actividad>` que contiene objetos `Charla` y `Taller` indistintamente, cada objeto resuelve `getTipo()` según su propia clase real, sin necesidad de preguntar explícitamente de qué tipo es cada actividad (sin usar `if`).
 
-## Estructura del Repositorio
-El repositorio cuenta con todos los artefactos solicitados en las pautas de entrega:
-- Directorio de código fuente generado en IntelliJ IDEA.
-- Este archivo `README.md` con la documentación del proyecto.
-- `mapa_memoria.png` / `mapa_memoria.jpg`: Representación gráfica del Heap y Stack de ejecución del Ejercicio 4.
-- `captura_consola.png` / `captura_consola.jpg`: Evidencia de la correcta ejecución del programa y su salida en pantalla.
+## Reglas de negocio
+* Si el evento es gratuito, su costo total estimado es 0.
+* Si el evento no es gratuito, el costo total se calcula como: `(costoBase + suma del costo de materiales de sus actividades) * 1.21` (el 21% adicional corresponde a impuestos).
+* **Charlas:** no generan costo de materiales ($0).
+* **Talleres:** cuestan $5000 si requieren notebook, o $2000 si no la requieren.
 
-## Ejecución
-Para ejecutar el proyecto, compilar e iniciar desde la clase `App.java`, la cual contiene el método `main` con los casos de prueba de estudiantes, eventos y actividades instanciados.
+## Cómo ejecutar el proyecto
+1. Clonar el repositorio en Símbolo de sistema (cmd) o terminal:
+   `git clone https://github.com/Quasar4b/PP_TP1_53442.git`
+2. Abrir la carpeta del proyecto con IntelliJ IDEA.
+3. Ejecutar la clase `App` (contiene el método `main`) para poder ver la salida.
+
+## Ejemplo de ejecución
+El programa, al ejecutarse:
+1. Crea estudiantes.
+2. Crea un evento universitario.
+3. Le asigna una sala.
+4. Crea actividades de tipo Charla y Taller para ese evento.
+5. Inscribe estudiantes en cada actividad.
+6. Muestra el resumen de datos del evento, recorriendo sus actividades y mostrando la identificación de cada una de forma polimórfica.
+7. Muestra el total de eventos creados.
+
+# Captura de la salida por consola de una ejecución del programa:
 <img width="1652" height="670" alt="image" src="https://github.com/user-attachments/assets/f5fe2076-0db9-4f16-ba70-2b8faa1e927a" />
