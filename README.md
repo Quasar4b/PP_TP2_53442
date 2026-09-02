@@ -24,8 +24,8 @@ El método `mostrarIdentificaciones()`, definido una única vez en `Actividad` (
 ## Cómo ejecutar el proyecto
 1. Clonar el repositorio en Símbolo de sistema (cmd) o terminal:
    `git clone https://github.com/Quasar4b/PP_TP1_53442.git`
-2. Abrir la carpeta del proyecto con IntelliJ IDEA.
-3. Ejecutar la clase `App` (contiene el método `main`) para poder ver la salida.
+3. Abrir la carpeta del proyecto con IntelliJ IDEA.
+4. Ejecutar la clase `App` (contiene el método `main`) para poder ver la salida.
 
 ## Ejemplo de ejecución
 El programa, al ejecutarse:
