@@ -1,4 +1,11 @@
-public class Taller extends Actividad{
+package modelo.actividades;
+
+import modelo.Estudiante;
+import modelo.certificación.Certificable;
+
+import java.io.Serializable;
+
+public class Taller extends Actividad implements Serializable, Certificable {
 
     private boolean requiereNotebook;
 
@@ -26,5 +33,10 @@ public class Taller extends Actividad{
 
     public boolean isRequiereNotebook() {
         return requiereNotebook;
+    }
+
+    @Override
+    public String generarCertificado(Estudiante estudiante) {
+        return ENTIDAD_EMISORA + "Certifica al estudiante " + estudiante.getNombre() + " de legajo "+ estudiante.getLegajo() + " por el Taller " + this.getTitulo();
     }
 }

@@ -1,10 +1,16 @@
+package modelo.actividades;
+import exepciones.CupoExcedidoException;
+import modelo.Estudiante;
+import modelo.Inscripcion;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 
     //--------------------CONSTRUCTORES--------------------
-public abstract class Actividad {
+public abstract class Actividad implements Serializable {
     protected int id;
     protected String titulo;
     protected int cupoMaximo;
@@ -13,20 +19,23 @@ public abstract class Actividad {
 
     private List<Inscripcion> inscripciones = new ArrayList<>();
 
-    //--------------------METODOS--------------------
+        public List<Inscripcion> getInscripciones() {
+            return inscripciones;
+        }
+//--------------------METODOS--------------------
 
     public Actividad(int id, String titulo, int cupoMaximo) {
         this.id = id;
         this.titulo = titulo;
         this.cupoMaximo = cupoMaximo;
     }
-
-    public Inscripcion inscribir(Estudiante estudiante) {
-        Inscripcion inscripcion = new Inscripcion(this, estudiante, LocalDate.now(), "REGISTRADA");
-        inscripciones.add(inscripcion);
-        return inscripcion;
-    }
-
+            public Inscripcion inscribir (Estudiante estudiante) throws CupoExcedidoException {
+                if(inscripciones.size() >= cupoMaximo) throw new CupoExcedidoException("Error al inscribir a " + estudiante.getNombre() + " no hay mas cupos disponibles") {
+                };
+            Inscripcion inscripcion = new Inscripcion(this, estudiante, LocalDate.now(), "REGISTRADA");
+            inscripciones.add(inscripcion);
+            return inscripcion;
+        }
     public final void mostrarInscripciones() {
         for (Inscripcion inscripcion : inscripciones) {
             System.out.println(
@@ -74,5 +83,4 @@ public abstract class Actividad {
     public void setCupoMaximo(int cupoMaximo) {
         this.cupoMaximo = cupoMaximo;
     }
-
-}
+    }

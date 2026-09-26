@@ -1,23 +1,29 @@
-public class Sala {
-    private int id;
+package modelo;
+
+import java.io.Serializable;
+
+public class Estudiante implements Serializable {
+    private String legajo;
     private String nombre;
+
     //--------------------CONSTRUCTORES--------------------
-    public Sala(int id, String nombre) {
+    public Estudiante(String legajo, String nombre) {
+        this.legajo = legajo;
         this.nombre = nombre;
-        this.id = id;
     }
     // --------------------LISTAS--------------------
     //--------------------METODOS--------------------
     //--------------------GETTERS--------------------
+    public String getLegajo() {
+        return legajo;
+    }
 
     public String getNombre() {
         return nombre;
     }
-    public int getId() {
-        return id;
-    }
-    //--------------------SETTERS-------------------
+    //--------------------SETTERS--------------------
 }
+
 
 
 
